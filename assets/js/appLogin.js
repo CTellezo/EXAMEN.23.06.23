@@ -147,7 +147,7 @@ const loginUsuario= async()=>{
          document.querySelector("#formIniciar").reset();
          localStorage.setItem("nombre",resultado.nombre);
          setTimeout(()=>{
-           window.location.href="inicio.html";
+           window.location.href="Admin.html";
          },2000);
    }else{
        Swal.fire({

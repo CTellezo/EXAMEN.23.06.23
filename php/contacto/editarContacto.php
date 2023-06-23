@@ -8,15 +8,14 @@ if($_POST){
     $nombre=$_POST['nombre'];
     $ap=$_POST['ap'];
     $am=$_POST['am'];
-    $telefono=$_POST['telefono'];
-    $correo=$_POST['correo'];
+    $categoria=$_POST['categoria'];
+    
     
     $sqlEditar="UPDATE contacto SET 
                 nombre='$nombre',
                 ap='$ap',
                 am='$am',
-                telefono='$telefono',
-                correo='$correo'
+                categoria='$categoria'
                 WHERE contactoid=$id";
     if($cx->query($sqlEditar)===true){
         $valido['success']=true;

@@ -8,8 +8,7 @@ $valido['success']=array('success'=>false,
 'nombre'=>"",
 'ap'=>"",
 'am'=>"",
-'telefono'=>"",
-'correo'=>"");
+'categoria'=>"");
 
 if($_POST){
     $id=$_POST['contactoid'];
@@ -22,8 +21,8 @@ if($_POST){
     $valido['nombre']=$row[1];
     $valido['ap']=$row[2];
     $valido['am']=$row[3];
-    $valido['telefono']=$row[4];
-    $valido['correo']=$row[5];
+    $valido['categoria']=$row[4];
+   
 }else{
     $valido['success']=false;
     $valido['mensaje']="ERROR AL CARGAR CONTACTO";

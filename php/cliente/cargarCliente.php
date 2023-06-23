@@ -6,8 +6,7 @@ $valido['success']=array('success'=>false,
 'mensaje'=>"",
 'clienteid'=>"",
 'nombre'=>"",
-'municipio'=>"",
-'telefono'=>"");
+
 
 
 if($_POST){
@@ -19,8 +18,7 @@ if($_POST){
     $valido['mensaje']="SE ENCONTRO REGISTRO";
     $valido['clienteid']=$row[0];
     $valido['nombre']=$row[1];
-    $valido['municipio']=$row[2];
-    $valido['telefono']=$row[3];
+    
    
 }else{
     $valido['success']=false;

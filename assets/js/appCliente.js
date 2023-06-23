@@ -16,14 +16,11 @@ const cerrarSesion=()=>{
 
 const agregarCliente= async()=>{
     var nombre=document.querySelector("#nombre").value;
-    var municipio=document.querySelector("#municipio").value;
-    var telefono=document.querySelector("#telefono").value;
+   
   
     
 
-    if(nombre.trim()===''  ||
-    municipio.trim()==='' ||
-    telefono.trim()===''  ){
+    if(nombre.trim()==='' ){
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
@@ -37,8 +34,7 @@ const agregarCliente= async()=>{
     // INSERTAR A LA BASE DE DATOS
     const datos=new FormData();
     datos.append("nombre",nombre);
-    datos.append("municipio",municipio);
-    datos.append("telefono",telefono);
+    
     
     
 
@@ -82,8 +78,7 @@ const cargarClientes=async()=>{
         registrosHTML+=`
      <tr>
         <td>${fila[1]}</td>
-        <td>${fila[2]}</td>
-        <td>${fila[3]}</td>
+       
         <td><button class="btn btn-success "  data-bs-toggle="modal" data-bs-target="#editarModal" onclick="cargarCliente(${fila[0]})"><i class="bi bi-pencil-square p-1"></i>Editar</button></td>
         <td><button class="btn btn-danger" onclick="eliminarCliente(${fila[0]})"> <i class="bi bi-trash p-1"></i>Eliminar</button></td>
       </tr>
@@ -147,8 +142,7 @@ const cargarCliente=async(clienteid)=>{
 
     document.querySelector("#clienteid").value=resultado.clienteid;
     document.querySelector("#enombre").value=resultado.nombre;
-    document.querySelector("#emunicipio").value=resultado.municipio;
-    document.querySelector("#etelefono").value=resultado.telefono;
+ 
    
 
 }
@@ -156,13 +150,10 @@ const cargarCliente=async(clienteid)=>{
 const editarCliente=async()=>{
     var clienteid=document.querySelector("#clienteid").value;
     var nombre=document.querySelector("#enombre").value;
-    var municipio=document.querySelector("#emunicipio").value;
-    var telefono=document.querySelector("#etelefono").value;
+    
    
 
-    if(nombre.trim()==='' ||
-    municipio.trim()==='' ||
-    telefono.trim()===''  ){
+    if(nombre.trim()==='' ){
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
@@ -176,8 +167,7 @@ const editarCliente=async()=>{
      const datos=new FormData();
      datos.append("clienteid",clienteid);
      datos.append("nombre",nombre);
-     datos.append("municipio",municipio);
-     datos.append("telefono",telefono);
+  
      
      
  

@@ -6,14 +6,11 @@ $valido['success']=array('success'=>false, 'mensaje'=>"");
 if($_POST){
     $id=$_POST['clienteid'];
     $nombre=$_POST['nombre'];
-    $municipio=$_POST['municipio'];
-    $telefono=$_POST['telefono'];
+   
    
     
     $sqlEditar="UPDATE cliente SET  
-                nombre='$nombre',
-                municipio='$municipio',
-                telefono='$telefono' 
+                nombre='$nombre'
                 
                 WHERE clienteid=$id";
     if($cx->query($sqlEditar)===true){

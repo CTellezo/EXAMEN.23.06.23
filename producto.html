@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REGISTRO DE OBJETOS</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body onload="mostrarProductos();">
+  <div class="container-fluid text-center m-auto">
+    <h1 class="bg-danger text-white">TIENDITA CECYTO</h1>
+    <hr>
+    <h2>GESTIÓN DE PRODUCTOS</h2>
+    <a href="categoria.html" class="btn btn-success w-25">CATEGORIA</a>
+    <a href="producto.html" class="btn btn-danger w-25">PRODUCTO</a>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModalProducto">Agregar Producto</button>
+    <div class="card w-100 bg-danger text-white mt-2" id="listProductos">
+    </div>
+    <div class="modal fade" id="addModalProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">AGREGAR PRODUCTO</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formAdd">
+              <h2>NOMBRE</h2>
+              <input type="text" name="" id="nombre" class="form-control m-1" placeholder="Nombre">
+              <h2>PRECIO</h2>
+              <input type="number" name="" id="precio" class="form-control m-1" placeholder="Precio" step="0.01">
+              <h2>EXISTENCIA</h2>
+              <input type="number" name="" id="stock" class="form-control m-1" placeholder="Existencia">
+              <h2>CATEGORIA</h2>
+              <select name="" id="categoria" class="form-control m-1"></select>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success" id="agregar">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/sweetalert2.all.min.js"></script>
+  <script src="appProducto.js"></script>
+</body>
+
+</html>

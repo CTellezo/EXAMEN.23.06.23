@@ -7,10 +7,10 @@ if($_POST){
     $nombre=$_POST['nombre'];
     $ap=$_POST['ap'];
     $am=$_POST['am'];
-    $telefono=$_POST['telefono'];
-    $correo=$_POST['correo'];
+    $telefono=$_POST['categoria'];
+  
     
-    $sqlInsertar="INSERT INTO contacto VALUES(null,'$nombre','$ap','$am','$telefono','$correo')";
+    $sqlInsertar="INSERT INTO contacto VALUES(null,'$nombre','$ap','$am','$categoria')";
     if($cx->query($sqlInsertar)===true){
         $valido['success']=true;
         $valido['mensaje']="SE GUARDO CORRECTAMENTE";

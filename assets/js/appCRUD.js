@@ -16,22 +16,21 @@ const cerrarSesion=()=>{
 
 const agregarContacto= async()=>{
     var nombre=document.querySelector("#nombre").value;
-    var ap=document.querySelector("#ap").value;
-    var am=document.querySelector("#am").value;
-    var telefono=document.querySelector("#telefono").value;
-    var correo=document.querySelector("#correo").value;
+    var ap=document.querySelector("#precio").value;
+    var am=document.querySelector("#existencia").value;
+    var categoria=document.querySelector("#categoria").value;
+    
     
 
     if(nombre.trim()==='' ||
     ap.trim()==='' ||
     am.trim()==='' ||
-    telefono.trim()==='' ||
-    correo.trim()==='' ){
+    categoria.trim()==='' ){
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
             text: 'FALTA LLENAR CAMPOS',
-            footer: 'CRUD CONTACTOS'
+            footer: 'CRUD PRODUCTOS'
           })  
         return;       
     }
@@ -42,8 +41,8 @@ const agregarContacto= async()=>{
     datos.append("nombre",nombre);
     datos.append("ap",ap);
     datos.append("am",am);
-    datos.append("telefono",telefono);
-    datos.append("correo",correo);
+    datos.append("categoria",categoria);
+
     
 
     var respuesta=await fetch(urlServer+"php/contacto/agregarContacto.php",{
@@ -58,7 +57,7 @@ const agregarContacto= async()=>{
             icon: 'success',
             title: 'EXITO!',
             text: resultado.mensaje,
-            footer: 'CRUD CONTACTOS'
+            footer: 'CRUD PRODUCTOS'
           }) 
           document.querySelector("#formAgregar").reset();
          
@@ -67,7 +66,7 @@ const agregarContacto= async()=>{
             icon: 'error',
             title: 'ERROR',
             text: resultado.mensaje,
-            footer: 'CRUD CONTACTOS'
+            footer: 'CRUD PRODUCTOS'
           }) 
     }
     document.querySelector("#agregarModal").click();
@@ -89,7 +88,7 @@ const cargarContactos=async()=>{
         <td>${fila[2]}</td>
         <td>${fila[3]}</td>
         <td>${fila[4]}</td>
-        <td>${fila[5]}</td>
+      
         <td><button class="btn btn-success "  data-bs-toggle="modal" data-bs-target="#editarModal" onclick="cargarContacto(${fila[0]})"><i class="bi bi-pencil-square p-1"></i>Editar</button></td>
         <td><button class="btn btn-danger" onclick="eliminarContacto(${fila[0]})"> <i class="bi bi-trash p-1"></i>Eliminar</button></td>
       </tr>
@@ -153,26 +152,25 @@ const cargarContacto=async(contactoid)=>{
 
     document.querySelector("#contactoid").value=resultado.contactoid;
     document.querySelector("#enombre").value=resultado.nombre;
-    document.querySelector("#eap").value=resultado.ap;
-    document.querySelector("#eam").value=resultado.am;
-    document.querySelector("#etelefono").value=resultado.telefono;
-    document.querySelector("#ecorreo").value=resultado.correo;
+    document.querySelector("#eprecio").value=resultado.ap;
+    document.querySelector("#eexistencia").value=resultado.am;
+    document.querySelector("#ecategoria").value=resultado.categoria;
+   
 
 }
 
 const editarContacto=async()=>{
     var contactoid=document.querySelector("#contactoid").value;
     var nombre=document.querySelector("#enombre").value;
-    var ap=document.querySelector("#eap").value;
-    var am=document.querySelector("#eam").value;
-    var telefono=document.querySelector("#etelefono").value;
-    var correo=document.querySelector("#ecorreo").value;
+    var ap=document.querySelector("#eprecio").value;
+    var am=document.querySelector("#eexistencia").value;
+    var categoria=document.querySelector("#ecategoria").value;
+    
 
     if(nombre.trim()==='' ||
     ap.trim()==='' ||
     am.trim()==='' ||
-    telefono.trim()==='' ||
-    correo.trim()==='' ){
+    categoria.trim()==='' ){
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
@@ -188,8 +186,8 @@ const editarContacto=async()=>{
      datos.append("nombre",nombre);
      datos.append("ap",ap);
      datos.append("am",am);
-     datos.append("telefono",telefono);
-     datos.append("correo",correo);
+     datos.append("categoria",categoria);
+     
      
  
      var respuesta=await fetch(urlServer+"php/contacto/editarContacto.php",{
@@ -204,7 +202,7 @@ const editarContacto=async()=>{
              icon: 'success',
              title: 'EXITO!',
              text: resultado.mensaje,
-             footer: 'CRUD CONTACTOS'
+             footer: 'CRUD PRODUCTOS'
            }) 
            document.querySelector("#formEditar").reset();
           
@@ -213,9 +211,15 @@ const editarContacto=async()=>{
              icon: 'error',
              title: 'ERROR',
              text: resultado.mensaje,
-             footer: 'CRUD CONTACTOS'
+             footer: 'CRUD PRODUCTOS'
            }) 
      }     
      cargarContactos();
 
+}
+
+
+const cargarC = async()=>{
+    var respuesta=await fetch(urlServer+"php/cliente/cargarClientes.php",{});
+    
 }
